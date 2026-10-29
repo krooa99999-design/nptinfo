@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>กลุ่มนิเทศ ติดตามและประเมินผลการจัดการศึกษา สพม.นครปฐม</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#eef1f6;--card:#fff;--ink:#1d2433;--mute:#667085;--navy:#12306b;--navy2:#0c2250;--gold:#e8a900;--line:#dde2ec;--head:#eaf0fa;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1420;--card:#18202f;--ink:#e8ecf3;--mute:#9aa4b5;--navy:#173a82;--navy2:#0b1a3d;--gold:#f0b92a;--line:#2b344a;--head:#222c42;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1420;--card:#18202f;--ink:#e8ecf3;--mute:#9aa4b5;--navy:#173a82;--navy2:#0b1a3d;--gold:#f0b92a;--line:#2b344a;--head:#222c42;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Sarabun',system-ui,sans-serif;line-height:1.6}
+a{color:inherit}
+.top{background:var(--card);border-bottom:1px solid var(--line)}
+.in{max-width:1180px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:14px;padding:12px 0;flex-wrap:wrap}
+.logo{width:64px;height:64px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:32px;flex:none;position:relative}
+.logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.brand h1{margin:0;font-size:clamp(18px,3vw,26px);color:var(--navy)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand h1{color:#fff}}
+.brand p{margin:0;color:var(--mute)}
+.sp{flex:1}
+.srch{display:flex;gap:6px}.srch input{width:200px}
+nav{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:5}
+nav .in{display:flex;flex-wrap:wrap;align-items:center}
+nav .it{position:relative}
+nav .it>a,nav .it>button{display:block;color:#fff;text-decoration:none;padding:11px 16px;background:none;border:0;border-radius:0;font:inherit;cursor:pointer}
+nav .it:hover>a,nav .it:hover>button,nav .it:focus-within>button{background:var(--navy2)}
+.menu{display:none;position:absolute;left:0;top:100%;min-width:260px;max-height:70vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:9}
+.it:hover>.menu,.it:focus-within>.menu{display:block}
+.menu a{display:block;padding:7px 14px;text-decoration:none;font-size:14px;border-bottom:1px solid var(--line)}
+.menu a:hover{background:var(--head)}
+.menu .h{padding:6px 14px;font-weight:700;background:var(--head);font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:16px}
+.two{display:grid;grid-template-columns:250px 1fr;gap:20px}
+@media(max-width:800px){.two{grid-template-columns:1fr}aside{position:static!important;max-height:170px}.srch input{width:130px}}
+aside{position:sticky;top:60px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px}
+aside a{display:block;padding:6px 10px;border-radius:8px;text-decoration:none;font-size:14px}
+aside a:hover{background:var(--head)}
+.slider{position:relative;border-radius:12px;overflow:hidden;background:linear-gradient(120deg,var(--navy2),#2c5bb5);aspect-ratio:3/1;min-height:130px;margin-bottom:18px}
+.slider img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;color:#fff;font-weight:700;font-size:clamp(15px,2.4vw,22px);background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.4);color:#fff;border:0;width:38px;height:56px;font-size:26px;cursor:pointer;padding:0}
+.arr.l{left:0;border-radius:0 8px 8px 0}.arr.r{right:0;border-radius:8px 0 0 8px}
+.dots{position:absolute;right:12px;top:10px;display:flex;gap:6px}
+.dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.5)}.dots i.on{background:var(--gold)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:18px}
+.tile{display:block;background:var(--navy);color:#fff;text-decoration:none;border-radius:12px;padding:16px;border-bottom:4px solid var(--gold)}
+.tile b{display:block;font-size:17px}.tile span{font-size:13px;opacity:.85}
+.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+.card h2{margin:0 0 8px;font-size:20px;color:var(--navy);border-left:5px solid var(--gold);padding-left:10px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .card h2{color:#fff}}
+.txt{white-space:pre-line;margin:6px 0 10px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--head)}
+.news a{display:flex;gap:12px;padding:10px 4px;border-bottom:1px dashed var(--line);text-decoration:none}
+.news a:hover{background:var(--head)}
+.dt{flex:none;min-width:90px;color:var(--gold);font-weight:700}
+.sv{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.sv ul{margin:6px 0 0;padding-left:20px}.sv li{margin:3px 0}
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:12px}
+.imgs figure{margin:0;position:relative}.imgs img{width:100%;height:150px;object-fit:cover;border-radius:10px;display:block}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:9px}
+button.pri{background:var(--gold);color:#1b1300;border-color:var(--gold);font-weight:700}
+button.dng{color:#c0392b}button.x{position:absolute;right:6px;top:6px;padding:2px 8px}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 8px;width:100%}
+td textarea,th textarea{min-width:90px;resize:vertical}
+.tools{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.row{display:flex;gap:8px;align-items:center;margin-bottom:8px}.row img{width:110px;height:50px;object-fit:cover;border-radius:6px}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#12306b;color:#fff;padding:10px 18px;border-radius:10px;display:none;z-index:99}
+label{display:block;margin:6px 0}
+footer{background:var(--navy2);color:#cfd8ee;text-align:center;padding:18px;font-size:14px;margin-top:20px}
+h3.sec{margin:18px 0 8px;color:var(--navy);border-left:5px solid var(--gold);padding-left:10px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) h3.sec{color:#fff}}
+</style>
+</head>
+<body>
+<div class="top"><div class="in"><div class="brand"><div class="logo" id="logo"></div><div><h1 id="ttl"></h1><p id="sub"></p></div><span class="sp"></span><form class="srch" id="sf"><input id="q" placeholder="ค้นหา..."><button class="pri">ค้นหา</button></form></div></div></div>
+<nav><div class="in" id="nav"></div></nav>
+<div class="wrap" id="main"></div>
+<footer>กลุ่มนิเทศ ติดตาม และประเมินผลการจัดการศึกษา · สำนักงานเขตพื้นที่การศึกษามัธยมศึกษานครปฐม<br><a href="#" id="adm" style="display:none;color:#9fb0d8;font-size:12px">ผู้ดูแลระบบ</a></footer>
+<input type="file" id="file" accept="image/*" hidden>
+<div id="toast"></div>
+<script>
+const SVD=[
+['สหวิทยาเขตพิมานปฐม',[['พระปฐมวิทยาลัย','http://www.phrapathom.ac.th/'],['วัดห้วยจรเข้วิทยาคม','http://www.wj.ac.th/'],['ศรีวิชัยวิทยา','http://www.swc.ac.th/'],['แหลมบัววิทยา','http://laembua.ac.th/'],['โพรงมะเดื่อวิทยาคม','http://www.prongmadua.ac.th/'],['สระกะเทียมวิทยาคม','http://www.sktw.ac.th/'],['พระปฐมวิทยาลัย 2 หลวงพ่อเงินอนุสรณ์','http://www.ppt2.ac.th/']]],
+['สหวิทยาเขตอภิรมย์ฤดี',[['สิรินธรราชวิทยาลัย','http://www.psc.ac.th/'],['มัธยมฐานบินกำแพงแสน','http://mtbk.ac.th/mainpage'],['คงทองวิทยา','http://www.kongthong.ac.th/'],['บ้านหลวงวิทยา','https://www.blws.ac.th/blws5/index.php'],['พลอยจาตุรจินดา','http://www.phloinpt.ac.th/'],['ศาลาตึกวิทยา','http://salatuek.ac.th/Salatuek1/'],['กำแพงแสนวิทยา','http://www.kpsw.ac.th/']]],
+['สหวิทยาเขตวัชรีรมยา',[['ราชินีบูรณะ','https://www.rn.ac.th/default/'],['วัดไร่ขิงวิทยา','http://www.wrk.ac.th/'],['สามพรานวิทยา','http://www.spw.ac.th/wpt/'],['ปรีดารามวิทยาคม','http://www.preedaram.ac.th/'],['งิ้วรายบุญมีรังสฤษดิ์','http://ngbr.ac.th/'],['อุบลรัตนราชกัญญาราชวิทยาลัย นครปฐม','http://www.ubrnp.ac.th/'],['เพิ่มวิทยา','http://permwit.ac.th/'],['ภัทรญาณวิทยา','http://www.py.ac.th/']]],
+['สหวิทยาเขตสามัคคีมุขมาตย์',[['กาญจนาภิเษกวิทยาลัย นครปฐม','https://www.kjn.ac.th/'],['ภ.ป.ร.ราชวิทยาลัย ในพระบรมราชูปถัมภ์','https://kc.ac.th/'],['รัตนโกสินทร์สมโภชบวรนิเวศศาลายา','http://www.rsbs.ac.th/'],['บัวปากท่าวิทยา','http://bptw.ac.th/'],['สถาพรวิทยา','http://stpsch.ac.th/'],['บางเลนวิทยา','http://www.banglane.ac.th/'],['บางหลวงวิทยา','http://www.blwy.ac.th/']]]];
+const SV=SVD.map(([name,l])=>({name,lines:l.map(x=>x.join('|')).join('\n')}));
+const NEWS=[
+{date:'',title:'การประชุมขับเคลื่อนนโยบายและทิศทางจัดการศึกษามัธยมศึกษา ประจำปีการศึกษา ๒๕๖๙',url:''},
+{date:'',title:'นิเทศ ติดตาม ประเมินผลโรงเรียนเรียนรวม จังหวัดนครปฐม และนิเทศ ติดตาม การเสริมสร้างความปลอดภัยในสถานศึกษา ประจำปีงบประมาณ พ.ศ. ๒๕๖๙',url:''},
+{date:'',title:'การติดตามเพื่อพัฒนาการบริหารและการจัดการศึกษาขั้นพื้นฐานของสำนักงานเขตพื้นที่การศึกษา ประจำปีงบประมาณ พ.ศ. ๒๕๖๙ (การติดตามเชิงประจักษ์)',url:''}];
+const NETROWS=Array.from({length:8},(_,i)=>SVD.map(s=>s[1][i]?s[1][i][0]:''));
+const YP=['ปี','ชื่อโรงเรียน'];
+const mk=(title,text,cols,rows)=>({title,text,cols,rows,images:[]});
+const yp=(t,x)=>mk(t,x,YP,[['','']]);
+const DEF={
+ title:'สารสนเทศกลุ่มนิเทศ ติดตาม และประเมินผลการจัดการศึกษา',
+ sub:'สำนักงานเขตพื้นที่การศึกษามัธยมศึกษานครปฐม',
+ banners:[],logo:'',news:NEWS,sv:SV,
+ sections:[
+  mk('จำนวนบุคลากรในสังกัด','จำนวนผู้บริหารสถานศึกษา ครู และพนักงานราชการ',['จังหวัด','ผู้บริหาร','ครูผู้สอน','พนักงานราชการ','รวม'],[['นครปฐม','','','',''],['รวม','','','','']]),
+  mk('จำนวนนักเรียน','',['จังหวัด','นักเรียนชาย','นักเรียนหญิง','รวม','ห้องเรียน'],[['นครปฐม','','','','']]),
+  mk('ขอบข่ายงานกลุ่มนิเทศ ติดตาม และประเมินผลการจัดการศึกษา','กลุ่มนิเทศ ติดตาม และประเมินผลการจัดการศึกษา ดำเนินการเกี่ยวกับการนิเทศการศึกษา วิเคราะห์ วิจัย ติดตาม ตรวจสอบ และประเมินผลการพัฒนาระบบการบริหารและการจัดการศึกษา เพื่อให้สถานศึกษามีความเข้มแข็งและจัดการเรียนการสอนได้อย่างมีคุณภาพ ได้มาตรฐานเท่าเทียมกัน โดยยึดโรงเรียนเป็นฐาน',['ชื่อ','ตำแหน่ง / วิทยฐานะ','หน้าที่รับผิดชอบ'],[['','ศึกษานิเทศก์','']]),
+  mk('การบริหารจัดการโดยเครือข่าย','เครือข่ายส่งเสริมประสิทธิภาพการจัดการมัธยมศึกษา ของ สพม.นครปฐม บริหารในรูปแบบสหวิทยาเขต 4 สหวิทยาเขต',['สหวิทยาเขตพิมานปฐม','สหวิทยาเขตอภิรมย์ฤดี','สหวิทยาเขตวัชรีรมยา','สหวิทยาเขตสามัคคีมุขมาตย์'],NETROWS),
+  mk('เครือข่ายส่งเสริมประสิทธิภาพการจัดการศึกษาโรงเรียนมัธยมศึกษาขนาดเล็ก','',['จังหวัด','โรงเรียน'],[['นครปฐม','']]),
+  mk('ระดับชั้นที่เปิดสอน','',['วุฒิ','รวม'],[['ป.5 – ม.6',''],['ม.1 – ม.6',''],['ม.6 / ปวช.',''],['รวม','']]),
+  mk('รายชื่อโรงเรียนจำแนกตามขนาด','',['ขนาด','เกณฑ์ (คน)','จำนวน (โรง)','รายชื่อโรงเรียน'],[
+   ['ใหญ่พิเศษ','1,680 ขึ้นไป','11','พระปฐมวิทยาลัย, วัดไร่ขิงวิทยา, ราชินีบูรณะ, สิรินธรราชวิทยาลัย, มัธยมฐานบินกำแพงแสน, กาญจนาภิเษกวิทยาลัย นครปฐม, วัดห้วยจรเข้วิทยาคม, กำแพงแสนวิทยา, คงทองวิทยา, รัตนโกสินทร์สมโภชบวรนิเวศศาลายา, ศรีวิชัยวิทยา'],
+   ['ใหญ่','1,080 – 1,679','2','ภัทรญาณวิทยา, สามพรานวิทยา'],
+   ['กลาง','360 – 1,079','5','ภ.ป.ร.ราชวิทยาลัย ในพระบรมราชูปถัมภ์, บางเลนวิทยา, โพรงมะเดื่อวิทยาคม, พระปฐมวิทยาลัย 2 หลวงพ่อเงินอนุสรณ์, ศาลาตึกวิทยา'],
+   ['เล็ก','359 ลงไป','11','อุบลรัตนราชกัญญาราชวิทยาลัย นครปฐม, บางหลวงวิทยา, บ้านหลวงวิทยา, ปรีดารามวิทยาคม, สระกะเทียมวิทยาคม, งิ้วรายบุญมีรังสฤษดิ์, สถาพรวิทยา, บัวปากท่าวิทยา, เพิ่มวิทยา, แหลมบัววิทยา, พลอยจาตุรจินดา']]),
+  yp('โรงเรียนเรียนรวม','โรงเรียนที่เข้าร่วมโครงการจัดการศึกษาแบบเรียนรวม จำนวน ........ โรงเรียน'),
+  yp('โรงเรียนวิถีพุทธ','ลงทะเบียนทั้งหมด ........ โรงเรียน · วิถีพุทธชั้นนำ ........ โรงเรียน · วิถีพุทธพระราชทาน 5 โรงเรียน'),
+  yp('โรงเรียนคุณธรรม','เข้าร่วมโครงการโรงเรียนคุณธรรม จำนวน ........ โรงเรียน'),
+  yp('โรงเรียนรางวัลพระราชทาน',''),
+  yp('โรงเรียนในฝัน','โรงเรียนในฝันทั้งสิ้น ........ โรงเรียน จำแนกเป็น ........ รุ่น'),
+  yp('สถานศึกษาพอเพียง','ผ่านการประเมิน “สถานศึกษาพอเพียง” จำนวน ........ โรงเรียน'),
+  yp('ศูนย์อาเซียนการศึกษา (ASEAN Study Center)','จำนวน ........ โรงเรียน'),
+  yp('โรงเรียนในโครงการทักษะศตวรรษที่ 21','จำนวน ........ โรงเรียน'),
+  yp('โรงเรียนที่เปิดสอน 2 วุฒิบัตร (ม.6 และ ปวช.)','จำนวน ........ โรงเรียน'),
+  yp('โรงเรียนที่เปิดสอนระดับชั้น ปวช.','จำนวน ........ โรงเรียน'),
+  mk('โรงเรียนในกลุ่มโรงเรียนพระราชดำริ','4 กลุ่ม จำนวน 5 โรงเรียน',['กลุ่มโรงเรียน','โรงเรียน'],[
+   ['ในพระบรมราชูปถัมภ์','ภ.ป.ร.ราชวิทยาลัย ในพระบรมราชูปถัมภ์'],
+   ['กาญจนาภิเษกวิทยาลัย และเฉลิมพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัวภูมิพลอดุลยเดช','กาญจนาภิเษกวิทยาลัย นครปฐม (พระตำหนักสวนกุหลาบมัธยม)'],
+   ['พระราชูปถัมภ์ สมเด็จพระเทพรัตนราชสุดาฯ สยามบรมราชกุมารี','สิรินธรราชวิทยาลัย'],
+   ['พระอุปถัมภ์ทูลกระหม่อมหญิงอุบลรัตนราชกัญญาสิริวัฒนาพรรณวดี','อุบลรัตนราชกัญญาราชวิทยาลัย นครปฐม']]),
+  mk('โรงเรียนที่มีอัตราการแข่งขันสูง','จำนวน ........ โรงเรียน',['ปี','ชื่อโรงเรียน','ร้อยละ O-NET นักเรียนทั่วไป (ไม่เกิน 60)','ร้อยละรวม O-NET'],[['','','','']]),
+  mk('โรงเรียนที่เปิดห้องเรียนพิเศษ','ได้รับความเห็นชอบจาก สพฐ. ให้เปิดห้องเรียนพิเศษ จำนวน ........ โรงเรียน',['ปี','ชื่อโรงเรียน','ชั้น','ห้องเรียนพิเศษ'],[['','','','']]),
+  mk('ผลการทดสอบ O-NET ชั้น ม.3 (ปีการศึกษา 2560–2562)','',['รายวิชา','2560','2561','พัฒนาการ','2561','2562','พัฒนาการ'],['ภาษาไทย','ภาษาอังกฤษ','คณิตศาสตร์','วิทยาศาสตร์'].map(x=>[x,'','','','','',''])),
+  mk('ผลการทดสอบ O-NET ชั้น ม.6 (ปีการศึกษา 2560–2562)','',['รายวิชา','2560','2561','พัฒนาการ','2561','2562','พัฒนาการ'],['ภาษาไทย','ภาษาอังกฤษ','คณิตศาสตร์','วิทยาศาสตร์'].map(x=>[x,'','','','','','']))
+ ]};
+let S=JSON.parse(JSON.stringify(DEF)),edit=false,dbDoc=null,assets=null,canEdit=false,bi=0,cur=0,tgt=null,view='home',Q='';
+const $=id=>document.getElementById(id);
+const PREV={};const esc=s=>(PREV[s]?PREV[s]:String(s==null?'':s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ok=u=>/^https?:\/\//i.test(u||'');
+const toast=m=>{const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(t._t);t._t=setTimeout(()=>t.style.display='none',2600)};
+const norm=()=>{S.sections.forEach(s=>{if(!s.paras)s.paras=[];if(!s.entries&&s.cols.length==2&&s.cols[0]==='ปี'&&s.cols[1]==='ชื่อโรงเรียน')s.entries=s.rows.filter(r=>r[0]||r[1]).map(r=>({year:r[0],name:r[1],photo:''}))});S.seeded=S.seeded||{};if(!S.seeded.q){S.seeded.q=1;if(!S.sections.some(s=>/โรงเรียนคุณภาพ/.test(s.title))){const k=S.sections.findIndex(s=>/โรงเรียนในฝัน/.test(s.title));const n=newSec('โรงเรียนคุณภาพ');n.text='จำนวน ........ โรงเรียน';S.sections.splice(k<0?S.sections.length:k+1,0,n)}}const sc=S.sections.find(s=>/ขอบข่ายงาน/.test(s.title));if(sc&&!sc.people)sc.people=[];S.news=S.news||NEWS;S.sv=S.sv||SV;S.logo=S.logo||'';S.banners=S.banners||[]};
+try{const l=localStorage.getItem('npt-nitet');if(l)S=JSON.parse(l)}catch(e){}
+norm();
+const pl=sv=>sv.lines.split('\n').map(x=>x.split('|')).filter(a=>a[0].trim());
+const inp=(p,v,ta)=>ta?`<textarea rows="1" data-k="${p}">${esc(v)}</textarea>`:`<input data-k="${p}" value="${esc(v)}">`;
+
+function nav(){
+ const sec=S.sections.map((s,i)=>`<a href="#s${i}">${i+1}. ${esc(s.title)}</a>`).join('');
+ const sch=S.sv.map(v=>`<div class="h">${esc(v.name)}</div>`+pl(v).map(a=>ok(a[1])?`<a href="${esc(a[1].trim())}" target="_blank" rel="noopener">${esc(a[0])}</a>`:`<a href="#schools">${esc(a[0])}</a>`).join('')).join('');
+ const es=[['เว็บไซต์กลุ่มนิเทศฯ','https://sites.google.com/view/supervisor-npt/home'],['เว็บไซต์ สพม.นครปฐม','https://www.mathayom-npt.go.th/'],['My Office','https://myoffice.mathayom-npt.go.th/index.php'],['Digital Hub for Smart Learning','https://serv.mathayom-npt.info/NptDigitalHub/'],['BIGDATA','https://serv.mathayom-npt.info/Bigdata/public/index.php']].map(a=>`<a href="${a[1]}" target="_blank" rel="noopener">${a[0]}</a>`).join('');
+ $('nav').innerHTML=`<div class="it"><a href="#home">หน้าแรก</a></div>
+ <div class="it"><button>ข้อมูลสารสนเทศ ▾</button><div class="menu"><a href="#info"><b>ดูทุกหัวข้อ</b></a>${sec}</div></div>
+ <div class="it"><button>โรงเรียนในสังกัด ▾</button><div class="menu">${sch}</div></div>
+ <div class="it"><a href="#news">ข่าวประชาสัมพันธ์</a></div>
+ <div class="it"><button>E-SERVICE ▾</button><div class="menu">${es}</div></div>
+ <span class="sp"></span>${(canEdit||sup)?`<span style="padding:6px 0">${edit?`<button class="pri" data-a="save">💾 บันทึก</button> <button data-a="export">⬇️ ส่งออก data.json</button> <button data-a="done">ออกจากโหมดแก้ไข</button>`:`<button class="pri" data-a="edit">✏️ แก้ไขข้อมูล</button>`}${sup?supBar():''}</span>`:`<span style="padding:6px 0"><button class="pri" data-a="suplogin">🔑 ศน. เข้าสู่ระบบ</button></span>`}`;
+}
+function slider(){
+ const b=S.banners;if(!b.length)return `<div class="slider" id="sl"></div>`;
+ if(bi>=b.length)bi=0;const x=b[bi];
+ return `<div class="slider" id="sl"><img src="${esc(x.url)}" alt="">${x.title?`<div class="cap">${esc(x.title)}</div>`:''}${b.length>1?`<button class="arr l" data-a="prev">‹</button><button class="arr r" data-a="next">›</button><div class="dots">${b.map((_,k)=>`<i class="${k==bi?'on':''}"></i>`).join('')}</div>`:''}</div>`;
+}
+function bannerPanel(){
+ return `<div class="panel"><b>จัดการแบนเนอร์</b><p style="color:var(--mute);margin:2px 0 10px">แนะนำภาพแนวนอนอัตราส่วน 3:1 (เช่น 1500×500 px)</p>${S.banners.map((b,j)=>`<div class="row"><img src="${esc(b.url)}" alt=""><div style="flex:1">${inp('banners.'+j+'.title',b.title)}</div><button class="dng" data-a="delban:${j}">ลบ</button></div>`).join('')}<button class="pri" data-a="img:b">+ เพิ่มแบนเนอร์</button></div>`;
+}
+function newsHTML(n){
+ const L=S.news.slice(0,n||999);
+ if(!edit)return `<div class="news">${L.map(x=>{const u=ok(x.url);return `<a ${u?`href="${esc(x.url)}" target="_blank" rel="noopener"`:'href="#news"'}><span class="dt">${esc(x.date)||'•'}</span><span>${esc(x.title)}</span></a>`}).join('')||'<p style="color:var(--mute)">ยังไม่มีข่าว</p>'}</div>`;
+ return S.news.map((x,i)=>`<div class="row" style="align-items:flex-start;flex-wrap:wrap"><div style="width:140px">${inp('news.'+i+'.date',x.date)}</div><div style="flex:1;min-width:220px">${inp('news.'+i+'.title',x.title,1)}${inp('news.'+i+'.url',x.url)}</div><button class="dng" data-a="delnews:${i}">ลบ</button></div>`).join('')+`<button class="pri" data-a="addnews">+ เพิ่มข่าว</button>`;
+}
+function newSec(t){return {title:t,text:'',cols:[],rows:[],images:[],paras:[]}}
+function par(s,i){
+ const P=s.paras||[];
+ if(!edit)return P.length?`<div style="margin:10px 0">${P.map(p=>`${p.text?`<div class="txt">${esc(p.text)}</div>`:''}${p.photo?`<img src="${esc(p.photo)}" alt="" style="max-width:100%;max-height:420px;border-radius:10px;display:block;margin:8px 0">`:''}`).join('')}</div>`:'';
+ const K=(j,f)=>'sections.'+i+'.paras.'+j+'.'+f;
+ return `<div class="panel" style="margin:10px 0"><b>ย่อหน้า (เพิ่มครั้งละ 1 ย่อหน้า)</b><p style="color:var(--mute);margin:2px 0">พิมพ์ข้อความของย่อหน้า และแนบภาพประกอบได้ (ไม่บังคับ)</p>${P.map((p,j)=>`<div class="row" style="align-items:flex-start;flex-wrap:wrap;margin-top:12px"><div style="flex:1;min-width:240px"><textarea rows="4" data-k="${K(j,'text')}">${esc(p.text)}</textarea></div><div style="text-align:center"><div style="width:110px;height:80px;border-radius:10px;overflow:hidden;background:var(--head);display:grid;place-items:center;font-size:30px">${p.photo?`<img src="${esc(p.photo)}" alt="" style="width:100%;height:100%;object-fit:cover">`:'🖼️'}</div><button data-a="qimg:${i}:${j}" style="margin-top:4px;padding:2px 10px">แนบภาพ</button></div><button class="dng" data-a="delpara:${i}:${j}">ลบ</button></div>`).join('')}<div style="margin-top:12px"><button class="pri" data-a="addpara:${i}">+ เพิ่มย่อหน้า</button></div></div>`;
+}
+function ent(s,i){
+ if(!Array.isArray(s.entries))return '';
+ const ph=p=>`<div style="width:110px;height:80px;border-radius:10px;overflow:hidden;background:var(--head);display:grid;place-items:center;font-size:30px">${p.photo?`<img src="${esc(p.photo)}" alt="" style="width:100%;height:100%;object-fit:cover">`:'🖼️'}</div>`;
+ if(!edit)return s.entries.length?`<div class="sv" style="margin:10px 0">${s.entries.map(p=>`<div class="card" style="margin:0">${p.photo?`<img src="${esc(p.photo)}" alt="" style="width:100%;max-height:220px;object-fit:cover;border-radius:10px;margin-bottom:8px">`:''}<div class="dt">${p.year?'ปี '+esc(p.year):''}</div><b>${esc(p.name)}</b></div>`).join('')}</div>`:'<p style="color:var(--mute)">ยังไม่มีข้อมูล</p>';
+ const K=(j,f)=>'sections.'+i+'.entries.'+j+'.'+f;
+ return `<div class="panel" style="margin:10px 0"><b>รายการ (เพิ่มครั้งละ 1 รายการ)</b><p style="color:var(--mute);margin:2px 0">ช่องที่กรอก: ปี · ชื่อโรงเรียน · แนบภาพ</p>${s.entries.map((p,j)=>`<div class="row" style="align-items:flex-start;flex-wrap:wrap;margin-top:12px"><div style="text-align:center">${ph(p)}<button data-a="eimg:${i}:${j}" style="margin-top:4px;padding:2px 10px">แนบภาพ</button></div><div style="flex:1;min-width:240px;display:flex;gap:6px"><div style="width:110px">${inp(K(j,'year'),p.year)}</div>${inp(K(j,'name'),p.name)}</div><button class="dng" data-a="dele:${i}:${j}">ลบ</button></div>`).join('')}<div style="margin-top:12px"><button class="pri" data-a="adde:${i}">+ เพิ่มรายการ</button></div></div>`;
+}
+function ppl(s,i){
+ if(!Array.isArray(s.people))return '';
+ const ph=(p,w,h,f)=>`<div style="width:${w}px;height:${h}px;margin:0 auto;border-radius:10px;overflow:hidden;background:var(--head);display:grid;place-items:center;font-size:${f}px">${p.photo?`<img src="${esc(p.photo)}" alt="" style="width:100%;height:100%;object-fit:cover">`:'👤'}</div>`;
+ if(!edit)return s.people.length?`<div class="sv" style="margin:10px 0">${s.people.map(p=>`<div class="card" style="text-align:center;margin:0">${ph(p,120,150,48)}<div style="margin-top:8px"><b>${esc(p.name)}</b></div><div style="color:var(--mute)">${esc(p.pos)}${p.rank?' · '+esc(p.rank):''}</div>${p.duty?`<div class="txt" style="text-align:left;font-size:14px">${esc(p.duty)}</div>`:''}</div>`).join('')}</div>`:'';
+ const K=(j,f)=>'sections.'+i+'.people.'+j+'.'+f;
+ return `<div class="panel" style="margin:10px 0"><b>บุคลากรรายบุคคล</b><p style="color:var(--mute);margin:2px 0">ช่องที่กรอก: ชื่อ-สกุล · ตำแหน่ง · วิทยฐานะ · หน้าที่ความรับผิดชอบ</p>${s.people.map((p,j)=>`<div class="row" style="align-items:flex-start;flex-wrap:wrap;margin-top:12px"><div style="width:90px;text-align:center">${ph(p,90,110,36)}<button data-a="pimg:${i}:${j}" style="margin-top:4px;padding:2px 10px">เลือกรูป</button></div><div style="flex:1;min-width:240px">${inp(K(j,'name'),p.name)}<div style="display:flex;gap:6px;margin:6px 0">${inp(K(j,'pos'),p.pos)}${inp(K(j,'rank'),p.rank)}</div>${inp(K(j,'duty'),p.duty,1)}</div><button class="dng" data-a="delp:${i}:${j}">ลบ</button></div>`).join('')}<div style="margin-top:12px"><button class="pri" data-a="addp:${i}">+ เพิ่มบุคลากร</button></div></div>`;
+}
+function secHTML(s,i){
+ const P='sections.'+i;
+ if(!edit)return `<section class="card" id="s${i}"><h2>${esc(s.title)}</h2>${s.text?`<div class="txt">${esc(s.text)}</div>`:''}${ppl(s,i)}${ent(s,i)}${par(s,i)}<div class="scroll"${s.entries||!s.cols.length?' hidden':''}><table><thead><tr>${s.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${s.images.length?`<div class="imgs">${s.images.map(u=>`<figure><img src="${esc(u)}" alt=""></figure>`).join('')}</div>`:''}</section>`;
+ return `<section class="card" id="s${i}">${inp(P+'.title',s.title)}<div style="height:8px"></div>${inp(P+'.text',s.text,1)}${ppl(s,i)}${ent(s,i)}${par(s,i)}<div class="scroll" style="margin-top:8px"${s.entries||!s.cols.length?' hidden':''}><table><thead><tr>${s.cols.map((c,j)=>`<th>${inp(P+'.cols.'+j,c,1)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r,a)=>`<tr>${r.map((c,j)=>`<td>${inp(P+'.rows.'+a+'.'+j,c,1)}</td>`).join('')}</tr>`).join('')}</tbody></table></div><div class="tools">${s.entries?'':(s.cols.length?`<button data-a="addrow:${i}">+ แถว</button><button data-a="delrow:${i}">− แถว</button><button data-a="addcol:${i}">+ คอลัมน์</button><button data-a="delcol:${i}">− คอลัมน์</button><button class="dng" data-a="deltable:${i}">ลบตาราง</button>`:`<button data-a="addtable:${i}">+ เพิ่มตาราง</button>`)}<button class="pri" data-a="img:${i}">+ เพิ่มรูปภาพ</button><span class="sp"></span><button data-a="up:${i}">↑</button><button data-a="down:${i}">↓</button><button class="dng" data-a="delsec:${i}">ลบหัวข้อ</button></div>${s.images.length?`<div class="imgs">${s.images.map((u,j)=>`<figure><img src="${esc(u)}" alt=""><button class="x dng" data-a="delimg:${i}:${j}">✕</button></figure>`).join('')}</div>`:''}</section>`;
+}
+function schools(){
+ return `<div class="sv">${S.sv.map((v,i)=>edit?`<div class="card">${inp('sv.'+i+'.name',v.name)}<p style="color:var(--mute);margin:6px 0">หนึ่งบรรทัดต่อหนึ่งโรงเรียน รูปแบบ: ชื่อโรงเรียน|ลิงก์เว็บไซต์</p><textarea rows="9" data-k="sv.${i}.lines">${esc(v.lines)}</textarea></div>`:`<div class="card"><h2>${esc(v.name)}</h2><ul>${pl(v).map(a=>`<li>${ok(a[1])?`<a href="${esc(a[1].trim())}" target="_blank" rel="noopener">${esc(a[0])}</a>`:esc(a[0])}</li>`).join('')}</ul></div>`).join('')}</div>`;
+}
+function search(){
+ const q=Q.toLowerCase(),r=[];
+ S.sections.forEach((s,i)=>{if((s.title+' '+s.text+' '+s.rows.flat().join(' ')).toLowerCase().includes(q))r.push(`<a href="#s${i}">📄 ${esc(s.title)}</a>`)});
+ S.news.forEach(x=>{if((x.title).toLowerCase().includes(q))r.push(`<a href="#news">📰 ${esc(x.title)}</a>`)});
+ S.sv.forEach(v=>pl(v).forEach(a=>{if(a[0].toLowerCase().includes(q))r.push(`<a href="#schools">🏫 ${esc(a[0])} (${esc(v.name)})</a>`)}));
+ return `<div class="card"><h2>ผลการค้นหา “${esc(Q)}”</h2><div class="news">${r.join('')||'<p>ไม่พบข้อมูล</p>'}</div></div>`;
+}
+function render(){
+ $('ttl').innerHTML=edit?inp('title',S.title):esc(S.title);
+ $('sub').innerHTML=edit?inp('sub',S.sub):esc(S.sub);
+ $('logo').innerHTML=(S.logo?`<img src="${esc(S.logo)}" alt="">`:'🏫')+(edit?`<button class="x" data-a="img:logo" style="font-size:11px;padding:1px 5px;right:-2px;top:-2px">แก้</button>`:'');
+ nav();let h='';
+ if(view==='home'){
+  h=slider()+(edit?bannerPanel():'')+`<div class="tiles"><a class="tile" href="#info"><b>ข้อมูลสารสนเทศ</b><span>${S.sections.length} หัวข้อ</span></a><a class="tile" href="#schools"><b>โรงเรียนในสังกัด</b><span>${S.sv.length} สหวิทยาเขต · ${S.sv.reduce((n,v)=>n+pl(v).length,0)} โรงเรียน</span></a><a class="tile" href="#news"><b>ข่าวประชาสัมพันธ์</b><span>${S.news.length} รายการ</span></a><a class="tile" href="https://sites.google.com/view/supervisor-npt/home" target="_blank" rel="noopener"><b>เว็บไซต์กลุ่มนิเทศฯ</b><span>ลิงก์เว็บไซต์หลักของกลุ่ม</span></a></div><div class="card"><h2>ข่าวประชาสัมพันธ์ล่าสุด</h2>${newsHTML(edit?999:6)}${!edit&&S.news.length>6?'<p><a href="#news">ดูทั้งหมด »</a></p>':''}</div>`;
+ }else if(view==='info'){
+  h=`<div class="card"><h2>ข้อมูลสารสนเทศ — เลือกหัวข้อที่ต้องการ</h2><div class="tiles">${S.sections.map((s,i)=>`<a class="tile" href="#s${i}"><b>${i+1}. ${esc(s.title)}</b></a>`).join('')}</div>${edit?`<button class="pri" data-a="addsec">+ เพิ่มหัวข้อใหม่</button>`:''}</div>`;
+ }else if(view==='sec'){
+  const n=S.sections.length;
+  h=`<div class="two"><aside><a href="#info"><b>« ทุกหัวข้อ</b></a>${S.sections.map((s,i)=>`<a href="#s${i}" ${i==cur?'style="background:var(--head);font-weight:700"':''}>${i+1}. ${esc(s.title)}</a>`).join('')}${edit?`<button class="pri" data-a="addsec" style="width:100%;margin-top:8px">+ เพิ่มหัวข้อใหม่</button>`:''}</aside><div>${secHTML(S.sections[cur],cur)}<div class="tools">${cur>0?`<a class="btn" style="text-decoration:none" href="#s${cur-1}">« ก่อนหน้า</a>`:''}<span class="sp"></span>${cur<n-1?`<a class="btn" style="text-decoration:none" href="#s${cur+1}">ถัดไป »</a>`:''}</div></div></div>`;
+ }else if(view==='schools'){h=schools()}
+ else if(view==='news'){h=`<div class="card"><h2>ข่าวประชาสัมพันธ์</h2>${newsHTML()}</div>`}
+ else if(view==='search'){h=search()}
+ $('main').innerHTML=h;
+}
+function route(){
+ const h=decodeURIComponent(location.hash.slice(1))||'home';
+ const m=/^s(\d+)$/.exec(h);
+ view=m&&S.sections[+m[1]]?'sec':(['home','info','schools','news','search'].includes(h)?h:'home');
+ if(view==='sec')cur=+m[1];
+ render();window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);
+$('sf').addEventListener('submit',e=>{e.preventDefault();Q=$('q').value.trim();if(!Q)return;if(location.hash==='#search')route();else location.hash='search'});
+setInterval(()=>{if(view==='home'&&S.banners.length>1&&!edit){bi=(bi+1)%S.banners.length;const e=$('sl');if(e)e.outerHTML=slider()}},5000);
+
+/* ===== ระบบรหัสผ่านสำหรับ ศน. (20 คน) ===== */
+const SUP_SALT='npt-nitet-2569';
+const SUP_HASH=["db55ccd64c56f2391c308a620cd7948525e27cb9641dad26d0c7f28c65b7f925", "c47f01c5ab0c2e8fc7796ba1914474459549bd25a3e4aece3b89be5f11cba504", "386e7afdee7295785e4ac94487c4e3835fd180ba40efe5ef3d653aa1f83ee5dc", "d8344eedd8de30e38aef90d9408f1d401cebb75fef19a63582554280ea31f045", "aa75fa7f70593a254ea5a50201fe1c797b08aa357f6262407198d07dd443d5b7", "8617242698023f3e57f18579575db6bfe35125ff6cf066e8ab83382b75b1eb6f", "ded2030caeb4c6e7e30b0db4c115899a22a418ff9297b4373a0f3f08d48938a2", "7fbb43111759cbeeea4f8d340bbe80b6064e9b8422879bc66ced73273c921cb1", "2643d398929150128db71fe2327af51ebd5b60639464c533a03c68816209323e", "a99e2ab81ce6db91828abb6fcfac347c4e06865757e2046336fb031dcce264be", "80197cd4f4e609d8663e04b71eeae7777175133eb9c7ea09041a68a95092c26c", "f3672e72450080455f47d51fbe2d5efe5e41a16e0f6c75a372a64cc7bed36080", "21d369af3e0b5d7a1f53f52d5c942b66b9e941d9f1e691c9bc63fee69903e8c1", "5f60205bbaab6bc8a63bb64bf61ba3e9d9dce48270e8a70baa50d3005a64b080", "8bbbd45b25cf33eeaa0c524e1f2935c40ff1b3a54a779b1fc94e413127dd8366", "b310f6ad8138fc2c4e8791df86a00c2fe4e9523bd66488f9ad041f3a88d0853c", "6b7a43092dea9d1433b2fa2ae393d83b1f3d11d43559084a567844b97a8a1942", "7c072598ef770a05aa6ab53c5b9ca0f1465b9e1476acdc587b3b4a371086d024", "f77f2fb96b5c1e795fb8669c2e9bb95927853fda2984a8a3d1a9db596d97dc96", "0ceb767f1a051b6f296397beb5d7dc474056dada579e2cc034b7ab425361e7ee"];
+const SUP_KEY='npt-sup';
+let sup=0;try{sup=+sessionStorage.getItem(SUP_KEY)||0;if(sup<1||sup>SUP_HASH.length)sup=0}catch(e){sup=0}
+let supFail=0,supLock=0;
+function sha256(ascii){
+ function rr(v,a){return(v>>>a)|(v<<(32-a))}
+ var mp=Math.pow,mw=mp(2,32),L='length',i,j,res='',words=[],bl=ascii[L]*8;
+ var hash=sha256.h=sha256.h||[],k=sha256.k=sha256.k||[],pc=k[L],ic={};
+ for(var c=2;pc<64;c++){if(!ic[c]){for(i=0;i<313;i+=c)ic[i]=c;hash[pc]=(mp(c,.5)*mw)|0;k[pc++]=(mp(c,1/3)*mw)|0}}
+ ascii+='\x80';while(ascii[L]%64-56)ascii+='\x00';
+ for(i=0;i<ascii[L];i++){j=ascii.charCodeAt(i);if(j>>8)return'';words[i>>2]|=j<<((3-i)%4)*8}
+ words[words[L]]=((bl/mw)|0);words[words[L]]=bl;
+ for(j=0;j<words[L];){
+  var w=words.slice(j,j+=16),old=hash;hash=hash.slice(0,8);
+  for(i=0;i<64;i++){
+   var w15=w[i-15],w2=w[i-2],a=hash[0],e=hash[4];
+   var t1=hash[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]+(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0);
+   var t2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));
+   hash=[(t1+t2)|0].concat(hash);hash[4]=(hash[4]+t1)|0;
+  }
+  for(i=0;i<8;i++)hash[i]=(hash[i]+old[i])|0;
+ }
+ for(i=0;i<8;i++)for(j=3;j+1;j--){var b=(hash[i]>>(j*8))&255;res+=((b<16)?0:'')+b.toString(16)}
+ return res;
+}
+const b2u=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function supOpen(it,iter,pw){
+ const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b2u(it.s),iterations:iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+ const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b2u(it.iv)},key,b2u(it.c));
+ return JSON.parse(new TextDecoder().decode(pt));
+}
+const supBar=()=>`<span style="color:#fff;font-size:13px;margin:0 6px">👤 ศน. คนที่ ${sup}</span><button data-a="suplogout">ออกจากระบบ</button>`;
+function supLogout(){
+ if(dirty&&edit&&!confirm('มีการแก้ไขที่ยังไม่ได้บันทึก ออกจากระบบหรือไม่?'))return;
+ sup=0;try{sessionStorage.removeItem(SUP_KEY);sessionStorage.removeItem('npt-ghs')}catch(e){}
+ dirty=false;edit=false;render();toast('ออกจากระบบแล้ว');
+}
+function supDialog(){
+ const d=document.createElement('div');
+ d.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;display:grid;place-items:center;padding:16px';
+ d.innerHTML=`<div class="card" style="max-width:360px;width:100%;margin:0"><h2>เข้าสู่ระบบ ศน.</h2><p style="color:var(--mute);font-size:14px;margin:4px 0 10px">กรอกรหัสผ่าน 4 หลักที่ได้รับ เพื่อแก้ไขและอัปโหลดข้อมูล</p><input id="sp1" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••" style="font-size:26px;letter-spacing:10px;text-align:center"><p id="spm" style="color:#c0392b;min-height:22px;margin:6px 0 0;font-size:14px"></p><div class="tools" style="justify-content:flex-end"><button id="spc">ยกเลิก</button><button id="spo" class="pri">เข้าสู่ระบบ</button></div></div>`;
+ document.body.appendChild(d);
+ const q=i=>d.querySelector(i),inp=q('#sp1');inp.focus();
+ const close=()=>d.remove();
+ q('#spc').onclick=close;
+ d.addEventListener('mousedown',e=>{if(e.target===d)close()});
+ const go=async()=>{
+  const now=Date.now();
+  if(now<supLock){q('#spm').textContent='ใส่รหัสผิดหลายครั้ง กรุณารออีก '+Math.ceil((supLock-now)/1000)+' วินาที';return}
+  const v=inp.value.trim();
+  if(!/^\d{4}$/.test(v)){q('#spm').textContent='กรุณากรอกตัวเลข 4 หลัก';return}
+  const i=SUP_HASH.indexOf(sha256(SUP_SALT+':'+v));
+  if(i<0){supFail++;inp.value='';
+   if(supFail>=5){supLock=Date.now()+30000;supFail=0;q('#spm').textContent='ใส่รหัสผิด 5 ครั้ง ระบบล็อก 30 วินาที'}
+   else q('#spm').textContent='รหัสผ่านไม่ถูกต้อง (ครั้งที่ '+supFail+'/5)';
+   return}
+  supFail=0;sup=i+1;try{sessionStorage.setItem(SUP_KEY,String(sup))}catch(e){}
+  let msg='ยินดีต้อนรับ ศน. คนที่ '+sup;
+  q('#spm').style.color='var(--mute)';q('#spm').textContent='กำลังเชื่อมต่อ GitHub...';
+  try{
+   const r=await fetch('auth.json?v='+Date.now(),{cache:'no-store'});
+   if(r.ok){const V=await r.json();const c=await supOpen(V.items[i],V.iter,v);sessionStorage.setItem('npt-ghs',JSON.stringify(c));msg+=' — เชื่อมต่อ GitHub แล้ว'}
+   else msg+=' — ไม่พบ auth.json จะบันทึกได้เฉพาะในเครื่องนี้';
+  }catch(e){msg+=' — เชื่อมต่อ GitHub ไม่สำเร็จ จะบันทึกได้เฉพาะในเครื่องนี้'}
+  close();render();toast(msg+' · กดปุ่ม ✏️ แก้ไขข้อมูล');
+ };
+ q('#spo').onclick=go;
+ inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+}
+let dirty=false;
+const GH_KEY='npt-gh';
+const getGH=()=>{try{const t=sessionStorage.getItem('npt-ghs');if(t)return JSON.parse(t)}catch(e){}try{return JSON.parse(localStorage.getItem(GH_KEY))}catch(e){return null}};
+const b64=s=>btoa(unescape(encodeURIComponent(s)));
+async function ghReq(path,method,body){
+ const c=getGH();
+ const u=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${path}`+(method==='GET'?`?ref=${encodeURIComponent(c.branch)}`:'');
+ return fetch(u,{method,cache:'no-store',headers:{Authorization:'Bearer '+c.token,Accept:'application/vnd.github+json','Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+}
+async function ghPut(path,content,msg,check){
+ const c=getGH();let sha;
+ if(check){const g=await ghReq(path,'GET');if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)throw new Error('อ่านไฟล์ไม่สำเร็จ ('+g.status+')')}
+ const p=await ghReq(path,'PUT',{message:msg,content,branch:c.branch,sha});
+ if(!p.ok){let m=p.status;try{m=(await p.json()).message||m}catch(e){}throw new Error(m)}
+}
+async function up(d){const n='images/'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)+'.jpg';await ghPut(n,d.split(',')[1],'add image',false);return n}
+async function pack(o,seen){
+ for(const k of Object.keys(o)){const v=o[k];
+  if(typeof v==='string'&&v.startsWith('data:image/')){if(!seen[v]){const p=await up(v);PREV[p]=v;seen[v]=p}o[k]=seen[v]}
+  else if(v&&typeof v==='object')await pack(v,seen)}
+}
+async function ghSave(){
+ toast('กำลังบันทึกขึ้น GitHub...');
+ try{await pack(S,{});await ghPut('data.json',b64(JSON.stringify(S,null,1)),'update data',true);dirty=false;render();toast('บันทึกขึ้น GitHub แล้ว — เว็บจะอัปเดตภายใน 1–2 นาที')}
+ catch(e){dirty=true;toast('บันทึกไม่สำเร็จ: '+(e.message||e))}
+}
+async function standalone(){
+ const f=location.protocol==='file:';
+ if(!f){try{const r=await fetch('data.json?v='+Date.now(),{cache:'no-store'});if(r.ok){S=await r.json();norm()}}catch(e){}$('adm').style.display='inline'}
+ canEdit=f||!!getGH();render();
+}
+function adminDialog(){
+ const c=getGH()||{},h=location.hostname,gp=h.endsWith('.github.io');
+ const d=document.createElement('div');
+ d.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;display:grid;place-items:center;padding:16px;overflow:auto';
+ d.innerHTML=`<div class="card" style="max-width:480px;width:100%;margin:0"><h2>ผู้ดูแลระบบ (เชื่อมต่อ GitHub)</h2><p style="color:var(--mute);font-size:14px;margin:4px 0 10px">${c.token?'เชื่อมต่อแล้ว — ':''}ใส่ข้อมูลที่เก็บเว็บบน GitHub และ Personal Access Token (สิทธิ์ Contents: Read and write เฉพาะ repo นี้) ข้อมูลนี้เก็บไว้ในเบราว์เซอร์เครื่องนี้เท่านั้น</p><label>ชื่อบัญชี (owner)<input id="g1" value="${esc(c.owner||(gp?h.split('.')[0]:''))}"></label><label>ชื่อ repository<input id="g2" value="${esc(c.repo||(gp?(location.pathname.split('/')[1]||h):''))}"></label><label>branch<input id="g3" value="${esc(c.branch||'main')}"></label><label>Token<input id="g4" type="password" value="${esc(c.token||'')}"></label><p id="gm" style="color:#c0392b;margin:8px 0"></p><div class="tools"><button class="pri" id="gok">เชื่อมต่อ</button><button id="gno">ปิด</button>${c.token?'<button class="dng" id="gout">ออกจากระบบผู้ดูแล</button>':''}</div></div>`;
+ document.body.appendChild(d);
+ const q=i=>d.querySelector(i);
+ q('#gno').onclick=()=>d.remove();
+ if(q('#gout'))q('#gout').onclick=()=>{localStorage.removeItem(GH_KEY);canEdit=false;edit=false;d.remove();render();toast('ออกจากระบบผู้ดูแลแล้ว')};
+ q('#gok').onclick=async()=>{
+  const n={owner:q('#g1').value.trim(),repo:q('#g2').value.trim(),branch:q('#g3').value.trim()||'main',token:q('#g4').value.trim()};
+  q('#gm').textContent='กำลังตรวจสอบ...';
+  try{
+   const r=await fetch(`https://api.github.com/repos/${n.owner}/${n.repo}`,{headers:{Authorization:'Bearer '+n.token,Accept:'application/vnd.github+json'}});
+   if(!r.ok)throw new Error('ตรวจสอบไม่ผ่าน ('+r.status+') — เช็กชื่อบัญชี ชื่อ repo และ token');
+   const j=await r.json();
+   if(j.permissions&&j.permissions.push===false)throw new Error('token นี้ไม่มีสิทธิ์เขียนไฟล์ (ต้องเป็น Contents: Read and write)');
+   localStorage.setItem(GH_KEY,JSON.stringify(n));canEdit=true;d.remove();render();toast('เชื่อมต่อแล้ว กดปุ่ม ✏️ แก้ไขข้อมูล ได้เลย');
+  }catch(e){q('#gm').textContent=e.message||String(e)}
+ };
+}
+$('adm').onclick=e=>{e.preventDefault();adminDialog()};
+window.addEventListener('beforeunload',e=>{if(dirty&&edit){e.preventDefault();e.returnValue=''}});
+function setp(path,v){const p=path.split('.');let o=S;for(let i=0;i<p.length-1;i++)o=o[p[i]];o[p[p.length-1]]=v}
+function shrink(f){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1400/i.width),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.82))};i.src=URL.createObjectURL(f)})}
+async function save(){
+ dirty=false;const j=JSON.stringify(S);
+ if(dbDoc){try{await dbDoc.set({json:j});toast('บันทึกข้อมูลเรียบร้อย');try{localStorage.setItem('npt-nitet',j)}catch(e){}}catch(e){toast('บันทึกไม่สำเร็จ: '+((e&&e.message)||''))}}
+ else if(getGH()){await ghSave()}
+ else{try{localStorage.setItem('npt-nitet',j);toast('บันทึกในเครื่องนี้แล้ว')}catch(e){toast('บันทึกไม่สำเร็จ')}}
+}
+document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){setp(k,e.target.value);dirty=true}});
+$('file').addEventListener('change',async e=>{
+ const f=e.target.files[0];e.target.value='';if(!f||tgt==null)return;
+ toast('กำลังอัปโหลดรูป...');
+ try{
+  const url=assets?(await assets.upload(f)).url:await shrink(f);
+  if(tgt==='b')S.banners.push({url,title:''});else if(tgt==='logo')S.logo=url;else if(tgt&&tgt.p)S.sections[tgt.p[0]].people[tgt.p[1]].photo=url;else if(tgt&&tgt.e)S.sections[tgt.e[0]].entries[tgt.e[1]].photo=url;else if(tgt&&tgt.q)S.sections[tgt.q[0]].paras[tgt.q[1]].photo=url;else S.sections[+tgt].images.push(url);
+  render();toast('เพิ่มรูปแล้ว — อย่าลืมกด “บันทึก”');
+ }catch(err){toast('อัปโหลดไม่สำเร็จ')}
+});
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-a]');if(!b)return;
+ const [a,x,y]=b.dataset.a.split(':'),s=S.sections[+x];
+ if(a==='suplogin'){supDialog();return}
+  else if(a==='suplogout'){supLogout();return}
+  else if(a==='edit'){edit=true}
+ else if(a==='export'){const bl=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});const u=URL.createObjectURL(bl);const l=document.createElement('a');l.href=u;l.download='data.json';l.click();return}
+ else if(a==='done'){if(dirty&&!confirm('มีการแก้ไขที่ยังไม่ได้บันทึก ออกจากโหมดแก้ไขหรือไม่?'))return;dirty=false;edit=false}
+ else if(a==='save'){await save();return}
+ else if(a==='img'){tgt=x;$('file').click();return}
+ else if(a==='pimg'){tgt={p:[+x,+y]};$('file').click();return}
+ else if(a==='eimg'){tgt={e:[+x,+y]};$('file').click();return}
+ else if(a==='addpara'){s.paras.push({text:'',photo:''})}
+ else if(a==='delpara'){s.paras.splice(+y,1)}
+ else if(a==='qimg'){tgt={q:[+x,+y]};$('file').click();return}
+ else if(a==='addtable'){s.cols=['คอลัมน์ 1','คอลัมน์ 2'];s.rows=[['','']]}
+ else if(a==='deltable'){if(confirm('ลบตารางของหัวข้อนี้?')){s.cols=[];s.rows=[]}else return}
+ else if(a==='adde'){s.entries.push({year:'',name:'',photo:''})}
+ else if(a==='dele'){s.entries.splice(+y,1)}
+ else if(a==='prev'){bi=(bi-1+S.banners.length)%S.banners.length}
+ else if(a==='next'){bi=(bi+1)%S.banners.length}
+ else if(a==='addsec'){S.sections.push(newSec('หัวข้อใหม่'));location.hash='#s'+(S.sections.length-1)}
+ else if(a==='delsec'){if(confirm('ลบหัวข้อนี้? (กด “บันทึก” เพื่อยืนยันการลบ)')){S.sections.splice(+x,1);location.hash='#info'}else return}
+ else if(a==='up'&&+x>0){[S.sections[x-1],S.sections[x]]=[S.sections[x],S.sections[x-1]];location.hash='#s'+(x-1)}
+ else if(a==='down'&&+x<S.sections.length-1){[S.sections[+x+1],S.sections[x]]=[S.sections[x],S.sections[+x+1]];location.hash='#s'+(+x+1)}
+ else if(a==='addrow'){s.rows.push(s.cols.map(()=>''))}
+ else if(a==='delrow'){if(s.rows.length>1)s.rows.pop()}
+ else if(a==='addcol'){s.cols.push('คอลัมน์ใหม่');s.rows.forEach(r=>r.push(''))}
+ else if(a==='delcol'){if(s.cols.length>1){s.cols.pop();s.rows.forEach(r=>r.pop())}}
+ else if(a==='delimg'){s.images.splice(+y,1)}
+ else if(a==='delban'){S.banners.splice(+x,1)}
+ else if(a==='addp'){s.people.push({photo:'',name:'',pos:'ศึกษานิเทศก์',rank:'',duty:''})}
+ else if(a==='delp'){s.people.splice(+y,1)}
+ else if(a==='addnews'){S.news.unshift({date:'',title:'หัวข้อข่าวใหม่',url:''})}
+ else if(a==='delnews'){S.news.splice(+x,1)}
+ if(a==='prev'||a==='next'){const el=$('sl');if(el)el.outerHTML=slider();return}
+ if(edit&&a!=='done')dirty=true;const y0=window.scrollY;render();window.scrollTo(0,y0);
+});
+(async()=>{
+ route();
+ try{
+  if(window.claude){
+   const u=await claude.use('user');canEdit=!!(u&&u.canEdit());
+   assets=await claude.use('assets');
+   const db=await claude.use('db');
+   if(db){dbDoc=db.doc('site/main');
+    dbDoc.onSnapshot(sn=>{if(sn.exists&&!edit){try{S=JSON.parse(sn.data().json);norm();render()}catch(e){}}},()=>{});}
+   render();
+  }else{await standalone()}
+ }catch(e){}
+})();
+</script>
+</body>
+</html>
